@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrowTalix GTPS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #060606;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 64px;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rgbText 6s ease infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes rgbText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 700px;
+      box-shadow: 0 0 25px rgba(0,255,255,0.3), 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: 0.3s ease;
+    }
+
+    .card:hover { transform: scale(1.015); }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 18px;
+      border-radius: 12px;
+      text-align: left;
+      overflow-x: auto;
+      color: #0f0;
+      font-weight: bold;
+      user-select: all;
+    }
+
+    .split-link {
+      word-break: break-word;
+      font-size: 16px;
+      color: #00ffff;
+    }
+
+    button.copy-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #00ffff;
+      color: #000;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button.copy-btn:hover {
+      background: #00dddd;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      height: 100%; width: 100%;
+      z-index: -1;
+    }
+
+    .discord-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 99;
+    }
+
+    .discord-float img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s ease;
+    }
+
+    .discord-float img:hover {
+      transform: scale(1.1);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 17px;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Discord Logo -->
+  <div class="discord-float">
+    <a href="https://discord.gg/8qgFcGcy7f" target="_blank" title="Join our Discord!">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+    </a>
+  </div>
+
+  <h1>GrowTalix</h1>
+
+  <!-- Deskripsi -->
+  <div class="card">
+    <h2>DESKRIPSI GTPS: <span style="background: linear-gradient(to right, red, green, blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">GROWTALIX</span></h2>
+    <p>GrowTalix adalah GTPS (Growtopia Private Server) paling keren, no lag, full custom item HD, no bug, dan punya komunitas aktif yang seru banget! Rasakan petualangan baru sekarang juga.</p>
+  </div>
+
+  <!-- Status -->
+  <div class="card">
+    <h2>STATUS SERVER:</h2>
+    <p style="color: #0f0; font-weight: bold;">✅ ONLINE</p>
+  </div>
+
+  <!-- VHOST -->
+  <div class="card">
+    <h2>LINK VHOST (Unduh):</h2>
+    <a href="https://www.mediafire.com/file/nigttoazxrsfunf/GrowTilax.txt/file" target="_blank">DOWNLOAD VHOST GROWTALIX</a>
+  </div>
+
+  <!-- Ptunnel (iOS) -->
+  <div class="card">
+    <h2>P-TUNNEL (iOS) - Copy Manual:</h2>
+    <div class="split-link" id="ptunnel-text">
+      https://gtpshost.com/<br>growtalix.txt
+    </div>
+    <button class="copy-btn" onclick="copyText('ptunnel-text')">Salin P-Tunnel</button>
+  </div>
+
+  <!-- IP Hosts (Windows) -->
+  <div class="card">
+    <h2>COPY WINDOWS HOSTS:</h2>
+    <pre id="windows-text">
+91.134.85.13 growtopia1.com  
+91.134.85.13 growtopia2.com  
+91.134.85.13 www.growtopia1.com  
+91.134.85.13 www.growtopia2.com
+    </pre>
+    <button class="copy-btn" onclick="copyText('windows-text')">Salin IP Hosts</button>
+  </div>
+
+  <!-- Particle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100 },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#00ffff",
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    function copyText(id) {
+      const el = document.getElementById(id);
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.execCommand("copy");
+      sel.removeAllRanges();
+      alert("Teks berhasil disalin!");
+    }
+  </script>
+
+</body>
+</html>
